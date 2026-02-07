@@ -1,4 +1,6 @@
-module Users
+module Api
+  module V1
+    module Users
   class UsersController < ApplicationController
     def create
       user = CreationService.new(**create_params_hash).execute!
@@ -14,6 +16,8 @@ module Users
 
     def create_params
       params.require(:user).permit(:username, :password, :password_confirmation)
+    end
+  end
     end
   end
 end

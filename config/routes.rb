@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  post "users/create" => "users/users#create"
-  post "sessions/create" => "users/sessions#create"
+  namespace :api do
+    namespace :v1 do
+      post "users/create" => "users/users#create"
+      post "sessions/create" => "users/sessions#create"
+    end
+  end
 end

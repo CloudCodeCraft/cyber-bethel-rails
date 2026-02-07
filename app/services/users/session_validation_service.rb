@@ -10,8 +10,6 @@ module Users
     def run!
       session = Session.where(user_id: @user_id, token_hash: @token_hash).first
       raise SessionNotFoundError if session.blank?
-
-
     end
   end
 end

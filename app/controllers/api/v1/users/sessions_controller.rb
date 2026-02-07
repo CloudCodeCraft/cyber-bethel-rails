@@ -1,5 +1,9 @@
-module Users
-  class SessionsController < ApplicationController
+
+module Api
+  module V1
+    module Users
+      class SessionsController < ApplicationController
+      end
     def create
       params_hash = create_params_hash.merge(
         {
@@ -23,6 +27,7 @@ module Users
 
     def create_params
       params.require(:user).permit(:username, :password)
+    end
     end
   end
 end
