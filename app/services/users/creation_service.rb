@@ -9,14 +9,17 @@ module Users
     private
 
     def run!
-      UsernameUniquenessService.new(username: @username).execute!
-
       password_digest_service = PasswordDigestGenerationService.new(
         password: @password,
         password_confirmation: @password_confirmation
       )
       password_digest = password_digest_service.execute!
-      User.create!(username: @username, password_digest: password_digest)
+      user = User.new(username: @username, password_digest: password_digest)
+      unless user.valid?
+        raise ActiveRecord::RecordInvalid, user.errors.full_messages.to_sentence
+      end
+
+      user.save!
     end
   end
 end
