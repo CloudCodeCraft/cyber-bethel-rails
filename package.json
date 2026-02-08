@@ -21,7 +21,11 @@
   },
   "homepage": "https://github.com/CloudCodeCraft/cyber-bethel-rails#readme",
   "devDependencies": {
-    "tailwindcss": "^4.1.18"
-  },
-  "dependencies": {}
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.23",
+    "@testing-library/dom": "^10.4.1",
+    "jsdom": "^28.0.0",
+    "tailwindcss": "^4.1.18",
+    "vitest": "^4.0.18"
+  }
 }
